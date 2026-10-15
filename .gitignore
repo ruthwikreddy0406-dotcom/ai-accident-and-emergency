@@ -5,8 +5,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Build output (Vercel builds from source)
-dist/
+# Build output is committed for Vercel static deployment
+# dist/
 
 # Evidence files (generated at runtime)
 backend/evidence-files/
