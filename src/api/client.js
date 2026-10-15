@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const isDevPort = typeof window !== 'undefined' && (window.location.port === '5173' || window.location.port === '3000');
-const API_BASE_URL = isDevPort ? 'http://127.0.0.1:8000/api' : '/api';
+// VITE_API_URL is set as an Environment Variable in Vercel dashboard (e.g. https://your-backend.onrender.com/api)
+const API_BASE_URL = import.meta.env.VITE_API_URL || (isDevPort ? 'http://127.0.0.1:8000/api' : '/api');
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
