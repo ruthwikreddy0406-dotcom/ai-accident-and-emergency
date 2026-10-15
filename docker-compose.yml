@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: roadguard-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///roadguard.db
+      - DEMO_MODE=true
+      - SIMULATE_EMERGENCY_DISPATCH=true
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend/evidence:/app/evidence
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: roadguard-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000/api
+    depends_on:
+      - backend
+    restart: unless-stopped
