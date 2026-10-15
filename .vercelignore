@@ -1,9 +1,10 @@
-# Exclude backend from Vercel - it's a FastAPI server, not a serverless function
-backend/
-docs/
-sample_data/
+# Exclude Python backend entirely - FastAPI cannot run on Vercel serverless
+backend
+docs
+sample_data
 *.bat
 *.ps1
 docker-compose.yml
 Dockerfile
 nginx.conf
+node_modules
