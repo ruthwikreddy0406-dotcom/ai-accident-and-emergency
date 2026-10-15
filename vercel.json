@@ -3,7 +3,6 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "installCommand": "npm install",
-  "ignoreCommand": "exit 1",
   "functions": {},
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
