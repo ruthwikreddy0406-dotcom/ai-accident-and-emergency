@@ -6,5 +6,18 @@ export default defineConfig({
   server: {
     port: 3000,
     open: false
+  },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          charts: ['recharts'],
+          maps: ['leaflet', 'react-leaflet'],
+          ui: ['lucide-react', 'axios', 'date-fns']
+        }
+      }
+    }
   }
 });
